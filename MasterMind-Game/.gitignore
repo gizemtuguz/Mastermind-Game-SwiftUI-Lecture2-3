@@ -1,9 +1,0 @@
-# Xcode
-DerivedData/
-*.xcuserdata
-*.moved-aside
-*.xccheckout
-*.xcodeproj/project.xcworkspace/xcuserdata
-*.DS_Store
-.build/
-
