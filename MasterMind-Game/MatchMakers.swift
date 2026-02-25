@@ -27,15 +27,29 @@ struct MatchMakers: View {
             }
         }
     }
+    
+    //@ViewBuilder
     func matchMarker(peg: Int) -> some View {
-        let exactCount: Int = matches.count(where: { match in match == .exact })
-        let foundCount: Int = matches.count(where: { match in match != .nomatch })
+        let exactCount = matches.count{ $0 == .exact } //Shorthand Argumant Name $0
+        let foundCount = matches.count{ $0 != .nomatch}
         return Circle()
-            .fill(exactCount > peg ? Color.primary : Color.clear)
+            .fill(exactCount > peg ? Color.primary : Color.clear) //ternary operator
             .strokeBorder(foundCount > peg ? Color.primary : Color.clear, lineWidth: 2).aspectRatio(1, contentMode: .fit)
     }
+    
+    /*
+    func isExact(match: Match) -> Bool {
+        match == .exact
+    }
+    
+    func isNoMatch(match: Match) -> Bool {
+        match == Match.nomatch
+    }
+    */
 }
 
 #Preview {
     MatchMakers(matches: [.exact, .inexact, .nomatch, .exact])
 }
+
+
